@@ -1,0 +1,33 @@
+
+.converter {
+    width:400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin :auto;
+    margin-top: 20px;
+  }
+  
+  .converter div {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .converter label {
+    border-radius: 5px;
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+  }
+  
+  .converter input {
+    padding: 5px;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  

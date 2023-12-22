@@ -1,0 +1,31 @@
+.nav-bar {
+  position :fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 180px;
+  background-color: rgb(48, 71, 71);
+  color: white;
+  padding: 20px;
+}
+.nav-bar h2 {
+  margin-bottom: 20px;
+}
+
+
+.navbar-links {
+  display: flex;
+  flex-direction: column;
+  gap:3rem;
+}
+
+.navbar-links a {
+ 
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  margin-left: 220px;
+  padding: 20px;
+}

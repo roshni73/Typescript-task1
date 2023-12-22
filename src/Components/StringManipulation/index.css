@@ -1,0 +1,45 @@
+.task3 {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .task3 h2 {
+    margin-bottom: 10px;
+  }
+  
+  .task3 p {
+    margin-bottom: 8px;
+  }
+  
+  .task3-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .task3-content main {
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .task3-content label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .task3-content input {
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .task3-content p {
+    margin-bottom: 8px;
+  }
+  

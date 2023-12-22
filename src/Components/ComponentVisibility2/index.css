@@ -1,0 +1,12 @@
+
+.component-two {
+    background-color: #fff; /* Default background color */
+    color: #333; /* Default text color */
+    padding: 20px;
+  }
+  
+  /* Dark mode styles for ComponentVisibility2 */
+  .dark-mode .component-two {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+  }

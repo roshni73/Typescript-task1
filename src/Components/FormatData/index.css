@@ -1,0 +1,43 @@
+.task2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 300px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.task2 h2 {
+    color:black;
+}
+
+.task2 p {
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.input{
+    margin: 10px ;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+
+}
+.task2 select {
+    margin: 10px ;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+.task2 .react-datepicker-wrapper {
+    margin: 10px 0;
+}

@@ -1,28 +1,14 @@
 import React, { useState } from "react";
+import "./index.css";
+import {
+  formatNumberWithOptions,
+  roundNumber,
+  convertToCurrency,
+} from "../../Utils/utils";
 
 interface NumberFormatProps {
-  value: number;
   userSeparator: string;
 }
-
-export const formatNumberWithOptions = (
-  value: number | undefined,
-  separator: string,
-  precision: number,
-  format: string,
-  currency: string
-): string => {
-  if (value === undefined || isNaN(value)) {
-    return "Invalid Number";
-  }
-  const formattedValue = value.toLocaleString(undefined, {
-    style: format,
-    currency,
-    minimumFractionDigits: precision,
-    useGrouping: true,
-  });
-  return formattedValue.replace(/,/g, separator);
-};
 
 const FormattingNumber: React.FC<NumberFormatProps> = ({ userSeparator = "," }) => {
   const [inputValue, setInputValue] = useState("");
@@ -62,17 +48,25 @@ const FormattingNumber: React.FC<NumberFormatProps> = ({ userSeparator = "," }) 
   return (
     <>
       <div className="question">
-       <h2>Task: Number Formatting Functions</h2>
-       <p> Develop a utility function to format a number with commas
-            as a specific separator</p>
-        <p> Implement a function to round a number to a specified
-            number of decimal places.</p>
-        <p> Create a function to convert a numeric amount to a currency format
-             Requirements:</p>
-        <li>here should be input for format.</li>
-         <li> There should be input for specified precision</li>
+        <h2>Task: Number Formatting Functions</h2>
+        <p>
+        Develop a utility function to format a number with commas
+        as a specific separator.</p>
+        <p>Task 7.2: Implement a function to round a number to a specified
+          number of decimal places.</p>
+          <p>ask 7.3: Create a function to convert a numeric amount to a currency
+          format
+          Requirements:
+          </p>
+
+
+      
+        <li>There should be input for format.</li> 
+        <li>There should be input for specified precision.</li>
         <li>There should be input for selection of currency.</li>
-        <li> Precision should affect in all three task</li>
+        <li>Precision should affect in all three task</li>
+        <li>Format should affect in all three task except currency.</li>
+
       </div>
       <main>
         <div>

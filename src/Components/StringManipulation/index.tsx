@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
-
-export function Capitalize(str: string): string {
-  return str.toUpperCase();
-}
-
-export function Truncate(str: string, length: number): string {
-  return str.length > length ? `${str.substring(0, length)}...` : str;
-}
+import { Capitalize, Truncate } from '../../Utils/utils';
 
 function StringManipulation() {
   const [originalString, setOriginalString] = useState<string>('');
@@ -20,11 +13,10 @@ function StringManipulation() {
       <div className="task3">
         <h2>Task: String Manipulation</h2>
         <p>Task 5.1: Create a utility function that takes a string as input and
-          returns a new string with the letter capitalized. Apply this utility
+        returns a new string with the letter capitalized. Apply this utility
           in a React component.</p>
         <p>Task 5.2: Create a utility function to truncate a given string to a
-            specified length.
-        </p>
+        specified length.</p>
       </div>
       <div className='task3-content'>
         <main>

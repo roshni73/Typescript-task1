@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import './index.css';
-
+import { filterTea, sortTea } from '../../Utils/utils';
 interface Tea {
   id: number;
   title: string;
@@ -9,25 +9,23 @@ interface Tea {
 }
 
 const teaList: Tea[] = [
-    { id: 1, title: 'Green Tea', price: 5, description: 'green tea' },
-    { id: 2, title: 'Black Tea', price: 7, description: 'black tea' },
-    { id: 3, title: 'Milk Tea', price: 6, description: 'milk tea' },
-    { id: 4, title: 'Fruit Tea', price: 8, description: 'fruit tea' },
-    { id: 5, title: 'Herbal Tea', price: 10, description: 'herbal tea' },
+  { id: 1, title: 'Green Tea', price: 5, description: 'Refreshing green tea' },
+  { id: 2, title: 'Black Tea', price: 7, description: 'Strong black tea' },
+  { id: 3, title: 'Milk Tea', price: 6, description: 'Creamy milk tea' },
+  { id: 4, title: 'Fruit Tea', price: 8, description: 'Fruity flavored tea' },
+  { id: 5, title: 'Herbal Tea', price: 10, description: 'Soothing herbal tea' },
 ];
+
+
+
 
 const ArrayManipulation: React.FC = () => {
   const [minPrice, setMinPrice] = useState<number>(0);
   const [maxPrice, setMaxPrice] = useState<number>(10);
   const [sortedTea, setSortedTea] = useState<Tea[]>(teaList);
 
-  const filteredTea = useMemo(() => {
-    return teaList.filter(tea => tea.price >= minPrice && tea.price <= maxPrice);
-  }, [minPrice, maxPrice]);
-
-  const sortedAndFilteredTea = useMemo(() => {
-    return [...filteredTea].sort((a, b) => a.price - b.price);
-  }, [filteredTea]);
+  const filteredTea = useMemo(() => filterTea(teaList, minPrice, maxPrice), [teaList, minPrice, maxPrice]);
+  const sortedAndFilteredTea = useMemo(() => sortTea(filteredTea), [filteredTea]);
 
   const MaxPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMinPrice(Number(e.target.value));
@@ -37,15 +35,16 @@ const ArrayManipulation: React.FC = () => {
     setMaxPrice(Number(e.target.value));
   };
 
-  const filterTea = () => {
+  const filterTeaCallback = useCallback(() => {
     setSortedTea(sortedAndFilteredTea);
-  };
+  }, [sortedAndFilteredTea]);
 
   const resetFilters = () => {
     setMinPrice(0);
     setMaxPrice(10);
     setSortedTea(teaList);
   };
+
 
   return (
     <>

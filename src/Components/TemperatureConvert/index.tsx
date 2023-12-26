@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
 import './index.css';
+import {
+  kelvinToCelsius,
+  kelvinToFahrenheit,
+  celsiusToKelvin,
+  celsiusToFahrenheit,
+  fahrenheitToCelsius,
+  fahrenheitToKelvin,
+} from '../../Utils/utils';
 
 const TemperatureConverter: React.FC = () => {
   const [kelvin, setKelvin] = useState<number | ''>('');
@@ -16,8 +24,8 @@ const TemperatureConverter: React.FC = () => {
 
     const kelvinValue = parseFloat(value);
     setKelvin(kelvinValue);
-    setCelsius(kelvinValue - 273.15);
-    setFahrenheit((kelvinValue - 273.15) * (9 / 5) + 32);
+    setCelsius(kelvinToCelsius(kelvinValue));
+    setFahrenheit(kelvinToFahrenheit(kelvinValue));
   };
 
   const handleCelsiusChange = (value: string) => {
@@ -30,8 +38,8 @@ const TemperatureConverter: React.FC = () => {
 
     const celsiusValue = parseFloat(value);
     setCelsius(celsiusValue);
-    setKelvin(celsiusValue + 273.15);
-    setFahrenheit(celsiusValue * (9 / 5) + 32);
+    setKelvin(celsiusToKelvin(celsiusValue));
+    setFahrenheit(celsiusToFahrenheit(celsiusValue));
   };
 
   const handleFahrenheitChange = (value: string) => {
@@ -44,42 +52,41 @@ const TemperatureConverter: React.FC = () => {
 
     const fahrenheitValue = parseFloat(value);
     setFahrenheit(fahrenheitValue);
-    setCelsius((fahrenheitValue - 32) * (5 / 9));
-    setKelvin((fahrenheitValue - 32) * (5 / 9) + 273.15);
+    setCelsius(fahrenheitToCelsius(fahrenheitValue));
+    setKelvin(fahrenheitToKelvin(fahrenheitValue));
   };
-return (
-    <>
-     <div className="converter">
-        <h2>Task: Convert Temperature</h2>
-    <div>
-      <label>Kelvin:</label>
-      <input
-        type="number"
-        value={kelvin}
-        onChange={(e) => handleKelvinChange(e.target.value)}
-      />
-    </div>
-    <div>
-      <label>Celsius:</label>
-      <input
-        type="number"
-        value={celsius}
-        onChange={(e) => handleCelsiusChange(e.target.value)}
-      />
-    </div>
-    <div>
-      <label>Fahrenheit:</label>
-      <input
-        type="number"
-        value={fahrenheit}
-        onChange={(e) => handleFahrenheitChange(e.target.value)}
-      />
-    </div>
-  </div>
-    </>
-);
- 
 
+  return (
+    <>
+      <div className="converter">
+        <h2>Task: Convert Temperature</h2>
+        <div>
+          <label>Kelvin:</label>
+          <input
+            type="number"
+            value={kelvin}
+            onChange={(e) => handleKelvinChange(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Celsius:</label>
+          <input
+            type="number"
+            value={celsius}
+            onChange={(e) => handleCelsiusChange(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Fahrenheit:</label>
+          <input
+            type="number"
+            value={fahrenheit}
+            onChange={(e) => handleFahrenheitChange(e.target.value)}
+          />
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default TemperatureConverter;
